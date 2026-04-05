@@ -1,0 +1,36 @@
+@use "variables";
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+overflow-x: hidden;
+margin: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid variables.$border-color;
+background-color: variables.$nav-background;
+align-items: center;
+justify-content: center;
+}
+
+nav div {
+    display: flex;
+}
+
+nav div {
+    list-style-type: none;
+    padding: 1rem;
+
+    a {
+        text-decoration: none;
+        color: variables.$primary-text;
+        font-size: 2rem;
+    }
+}
+
+nav div a:hover {
+    color: variables.$nav-link-hover;
+}

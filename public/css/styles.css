@@ -1,0 +1,35 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid black;
+  background-color: #DADD98;
+  align-items: center;
+  justify-content: center;
+}
+
+nav div {
+  display: flex;
+}
+
+nav div {
+  list-style-type: none;
+  padding: 1rem;
+}
+nav div a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+
+nav div a:hover {
+  color: grey;
+}
+
+/*# sourceMappingURL=styles.css.map */

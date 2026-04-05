@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<p>
+    <a href="/courses/add">Lägg till ny medlem</a>
+</p>
+<% if(errors.length> 0) { %>
+    <ul>
+<% errors.forEach((error) => { %>
+    <li><%= error %></li>
+    <% }); %>
+    <%= errors %>
+    </ul>
+    <% } %>
+<form method="post" action="/courses/add">
+    <label for="coursecode">Kurskod:</label>
+    <input type="text" id="coursecode" name="coursecode" value="<%= courseCode %>">
+    <br>
+    <label for ="coursename">Kursnamn:</label>
+    <input type="text" id="coursename" name="coursename" value="<%= courseName %>">
+    <br>
+    <label for="syllabus">Kursplan:</label>
+    <input type="text" id="syllabus" name="syllabus" value="<%= syllabus %>">
+    <br>
+    <label for ="progression">Progression:</label>
+    <input type="text" id="progression" name="progression" value="<%= progression %>">
+    <br>
+    <input type="submit" value="Lägg till kurs">
+</form>
+</html>
