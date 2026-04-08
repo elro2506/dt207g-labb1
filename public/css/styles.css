@@ -80,15 +80,18 @@ footer {
 
     main {
         padding: 1rem;
+        margin: 20px;
     }
 
     table {
         width: 100%;
         display: block;
         overflow-x: auto;
+        margin: 20px;
     }
 
-    button, #submit {
+    button,
+    #submit {
         width: 100%;
         font-size: 1rem;
     }

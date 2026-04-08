@@ -17,11 +17,11 @@ const { Pool } = require("pg");
 //En pool för databasansltutningen
 const pool = new Pool({
     //Env-variabel från Render
-    connectionString: process.env.DATABASE_URL || "postgresql://cvuser:pvIAoDGNvKvTgcyjpc4TYGaQh1KoTTuF@dpg-d79ms6ea2pns73e7bkog-a.oregon-postgres.render.com/cv_iswp",
-    //Testar och ser om SSL hjälper till i Render för anslutningen
-    ssl: {
-        rejectUnauthorized: false
-    }
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+    
 });
 
 
@@ -43,14 +43,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Route för att radera kurs
 app.get("/courses/delete/:id", async (req, res) => {
-  try {
-    //Kurs tas bort baserat på id
-    await pool.query("DELETE FROM courses WHERE id = $1", [req.params.id]);
-    //Efter radering hamnar man på courses-sidan igen
-    res.redirect("/courses");
-  }    catch (err) {
-    console.error(err);
-  }
+    try {
+        //Kurs tas bort baserat på id
+        await pool.query("DELETE FROM courses WHERE id = $1", [req.params.id]);
+        //Efter radering hamnar man på courses-sidan igen
+        res.redirect("/courses");
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 
@@ -115,7 +115,7 @@ app.post("/courses/add", async (req, res) => {
         await pool.query(`INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES($1, $2, $3, $4)`,
             [coursecode, coursename, syllabus, progression]
         );
-//Man skickas till courses-sidan
+        //Man skickas till courses-sidan
         res.redirect("/courses");
     } catch (err) {
         console.error(err);
