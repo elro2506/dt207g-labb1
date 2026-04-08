@@ -58,7 +58,7 @@ app.get("/courses/delete/:id", async (req, res) => {
 
 //Startsidan
 app.get("/", (req, res) => {
-    res.send("Du är live");
+    res.render("index");
 });
 
 //Sidan för att lägga till kurs
