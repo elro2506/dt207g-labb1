@@ -3,36 +3,12 @@
  */
 "use strict";
 
-<<<<<<< HEAD
-//Testar att servern går igång
-console.log("JavaScript funkar!");
-=======
 //Testar så att servern startar
 console.log("JS funkar!");
->>>>>>> development
 
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-<<<<<<< HEAD
-//Port 3000 lokalt men Render använder process.env.PORT
-const port = process.env.PORT || 3000;
-//Importerar PostgreSQL
-const { Pool } = require("pg");
-
-//En pool för databasansltutningen
-const pool = new Pool({
-    //Env-variabel från Render
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-    
-});
-
-
-//Testar att databasen funkar
-=======
 //Renders port som jag konfiguerat, annars localhost: 3000
 const port = process.env.PORT || 3000;
 //Importerar postgresql
@@ -49,7 +25,6 @@ const pool = new Pool({
 
 
 //Kollar så att databasen funkar
->>>>>>> development
 pool.query("SELECT NOW()", (err, res) => {
     if (err) {
         console.log("Databas-error", err);
@@ -58,26 +33,10 @@ pool.query("SELECT NOW()", (err, res) => {
     }
 });
 
-<<<<<<< HEAD
-//EJS som view enginge
-=======
 //Sätter EJS som view engine
->>>>>>> development
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));          //Statiska filer i katalogen Public
-<<<<<<< HEAD
-//Här läser jag in data från formuläret
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-//Route för att radera kurs
-app.get("/courses/delete/:id", async (req, res) => {
-    try {
-        //Kurs tas bort baserat på id
-        await pool.query("DELETE FROM courses WHERE id = $1", [req.params.id]);
-        //Efter radering hamnar man på courses-sidan igen
-=======
 //Gör så att vi kan läsa data från formulär
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -88,7 +47,6 @@ app.get("/courses/delete/:id", async (req, res) => {
         //Tar bort kurs baserat på id
         await pool.query("DELETE FROM courses WHERE id = $1", [req.params.id]);
         //Man hamnar på kurssidan igen
->>>>>>> development
         res.redirect("/courses");
     } catch (err) {
         console.error(err);
@@ -96,22 +54,13 @@ app.get("/courses/delete/:id", async (req, res) => {
 });
 
 
-<<<<<<< HEAD
-//Routes
-
-=======
 //Route
->>>>>>> development
 //Startsidan
 app.get("/", (req, res) => {
     res.render("index");
 });
 
-<<<<<<< HEAD
-//Sidan för att lägga till kurs
-=======
 //Sidan för att lägga till kurser
->>>>>>> development
 app.get("/courses/add", (req, res) => {
     res.render("addcourse", {
         errors: [],
@@ -127,12 +76,7 @@ app.get("/courses", async (req, res) => {
     try {
         //Hämtar kurser från databasen
         const result = await pool.query("SELECT * FROM courses");
-<<<<<<< HEAD
-
-        //Skickar all data till EJS-vyn
-=======
         //Skickar dem till EJS-vyn
->>>>>>> development
         res.render("courses", {
             courses: result.rows
         });
@@ -141,11 +85,7 @@ app.get("/courses", async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
-//Lägger till kurs med post
-=======
 //Lägger till kurs
->>>>>>> development
 app.post("/courses/add", async (req, res) => {
     const { coursecode, coursename, syllabus, progression } = req.body;
 
@@ -174,11 +114,7 @@ app.post("/courses/add", async (req, res) => {
         await pool.query(`INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES($1, $2, $3, $4)`,
             [coursecode, coursename, syllabus, progression]
         );
-<<<<<<< HEAD
-        //Man skickas till courses-sidan
-=======
         //Tillbaka till kurssidan
->>>>>>> development
         res.redirect("/courses");
     } catch (err) {
         console.error(err);
