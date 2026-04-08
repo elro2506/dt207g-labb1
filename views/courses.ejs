@@ -6,13 +6,16 @@
   <link href="/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-   <h1>Mina kurser - ett CV</h1> 
-   <nav>
-    <a href="/">Startsida</a>
-    <a href="/courses/add">Lägg till kurser</a>
-    <a href="/about">Om sidan</a>
-   </nav>
-
+      <nav>
+  
+        <div><a href="/">Start</a></div>
+        <div><a href="/about">Om</a></div>
+        <div><a href="/courses">Kurser</a></div>
+    
+   
+</nav>
+<main>
+<h1>Mina kurser - ett CV</h1> 
    <% if (courses.length === 0) { %>
     <p>Inga kurser finns.</p>
      <% } else { %>
@@ -44,6 +47,7 @@
     </tbody>
 </table>
 <% } %>
-
+<button onclick="window.location.href='courses/add'">Lägg till en kurs</button>
+</main>
 </body>
 </html>

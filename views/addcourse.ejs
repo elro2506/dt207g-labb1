@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<p>
-    <a href="/courses/add">Lägg till ny medlem</a>
-</p>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" description="Laboration med Express">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Laboration 1</title>
+</head>
+
+<body>
+    <nav>
+  
+        <div><a href="/">Start</a></div>
+        <div><a href="/about">Om</a></div>
+        <div><a href="/courses">Kurser</a></div>
+    
+   
+</nav>
+    <main>
+    <h1>Lägg till ny kurs</h1>
 <% if(errors.length> 0) { %>
     <ul>
 <% errors.forEach((error) => { %>
     <li><%= error %></li>
     <% }); %>
-    <%= errors %>
+    
     </ul>
     <% } %>
 <form method="post" action="/courses/add">
@@ -25,4 +41,8 @@
     <br>
     <input type="submit" value="Lägg till kurs">
 </form>
+    </main>
+</body>
+
 </html>
+
