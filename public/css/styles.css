@@ -1,7 +1,14 @@
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -34,11 +41,13 @@ nav div a:hover {
 }
 
 main {
+    flex: 1;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-button, #submit {
+button,
+#submit {
     background-color: #4fd14f;
     padding: 1rem;
     border-radius: 20px;
@@ -59,4 +68,5 @@ th {
 footer {
     background-color: #79d479;
     padding: 20px;
+    margin-top: 20px;
 }
