@@ -38,7 +38,7 @@ main {
     margin: 0 auto;
 }
 
-button {
+button, #submit {
     background-color: #4fd14f;
     padding: 1rem;
     border-radius: 20px;
@@ -54,4 +54,9 @@ table {
 
 th {
     padding-right: 2rem;
+}
+
+footer {
+    background-color: #79d479;
+    padding: 20px;
 }
