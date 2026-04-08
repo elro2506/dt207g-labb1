@@ -12,11 +12,11 @@ const port = process.env.PORT || 3000;
 const { Pool } = require("pg");
 
 const pool = new Pool({
-    connectionString: "postgresql://cvuser:pvIAoDGNvKvTgcyjpc4TYGaQh1KoTTuF@dpg-d79ms6ea2pns73e7bkog-a.oregon-postgres.render.com/cv_iswp",
+    connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false
     }
-})
+});
 
 
 
