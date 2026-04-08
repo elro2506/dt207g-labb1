@@ -24,7 +24,7 @@
     <thead>
         <tr>
             <th>Kurskod</th>
-            <th>Kurskod</th>
+            <th>Kursnamn</th>
             <th>Kursplan</th>
             <th>Progression</th>
             <th>Radera</th>
@@ -40,14 +40,14 @@
         </td>
         <td><%= course.progression %></td>
         <td>
-           <a href="/delete/<%= course.id %>">Radera</a> 
+           <a href="/courses/delete/<%= course.id %>">Radera</a> 
         </td>
     </tr>
 <% }) %>
     </tbody>
 </table>
 <% } %>
-<button onclick="window.location.href='courses/add'">Lägg till en kurs</button>
+<button onclick="window.location.href='/courses/add'">Lägg till en kurs</button>
 </main>
 </body>
 </html>

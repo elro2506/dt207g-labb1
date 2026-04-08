@@ -8,7 +8,7 @@ console.log("JS funkar!");
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const { Pool } = require("pg");
 
 const pool = new Pool({
@@ -18,6 +18,8 @@ const pool = new Pool({
     }
 })
 
+
+
 pool.query("SELECT NOW()", (err, res) => {
     if (err) {
         console.log("DB error", err);
@@ -26,9 +28,22 @@ pool.query("SELECT NOW()", (err, res) => {
     }
 });
 
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));          //Statiska filer i katalogen Public
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+//Radera
+app.get("/courses/delete/:id", async (req, res) => {
+  try {
+    await pool.query("DELETE FROM courses WHERE id = $1", [req.params.id]);
+    res.redirect("/courses");
+  }    catch (err) {
+    console.error(err);
+  }
+});
+
 
 //Route
 app.get("/", (req, res) => {
@@ -94,8 +109,14 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
+
+
 //Starta
 app.listen(port, () => {
     console.log("Server started on port: " + port);
 });
+
+
+
+
 
