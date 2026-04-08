@@ -47,7 +47,7 @@ app.get("/courses/delete/:id", async (req, res) => {
 
 //Route
 app.get("/", (req, res) => {
-    res.render("index");
+    res.send("Du är live");
 });
 
 app.get("/courses/add", (req, res) => {
